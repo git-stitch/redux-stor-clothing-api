@@ -1,6 +1,9 @@
 # README
 
 Major Keys For the ReduxStor Fake Clothing API
+//////////////////////////////////////////////
+Get All Products
+//////////////////////////////////////////////
   Get all Products: http://localhost:3000/api/v1/products
   Example JSON response:
 [
@@ -36,6 +39,9 @@ Major Keys For the ReduxStor Fake Clothing API
       }
 ]
 
+//////////////////////////////////////////////
+Get A Product
+//////////////////////////////////////////////
 GET one Product: http://localhost:3000/api/v1/products/:id
   Example Response:
     {
@@ -49,26 +55,28 @@ GET one Product: http://localhost:3000/api/v1/products/:id
     "updated_at": "2019-05-24T19:38:14.608Z"
 }
 
+//////////////////////////////////////////////
+Create a cart
+//////////////////////////////////////////////
+POST to  http://localhost:3000/api/v1/carts
+  Example Body:
+    {
+      "user_id":7,
+      "product_id":47,
+      "quantity":2
+    }
+  Example Response:
+    {
+      "id": 3,
+      "user_id": 7,
+      "product_id": 47,
+      "quantity": 2,
+      "created_at": "2019-05-28T17:43:29.084Z",
+      "updated_at": "2019-05-28T17:43:29.084Z"
+    }
+
+//////////////////////////////////////////////
+Create A Wish List
+//////////////////////////////////////////////
 
 
-This README would normally document whatever steps are necessary to get the application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-    
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

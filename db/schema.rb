@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_05_28_135431) do
   create_table "carts", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "product_id"
+    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_carts_on_product_id"
@@ -28,7 +29,6 @@ ActiveRecord::Schema.define(version: 2019_05_28_135431) do
     t.string "name"
     t.string "categorie"
     t.integer "price"
-    t.string "size"
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2019_05_28_135431) do
   create_table "wish_lists", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "product_id"
+    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_wish_lists_on_product_id"
