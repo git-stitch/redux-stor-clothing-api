@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   namespace :api do 
     namespace :v1 do 
       resources :products, only: [:index, :show]
-      resources :wish_lists, only: [:index,:show, :delete, :create, :update]
-      resources :carts, only: [:index,:show, :update, :create, :delete]
-      resources :users, only: [:index,:show]
+      resources :wish_lists, only: [:index,:show, :destroy, :create, :update]
+      resources :carts, only: [:index,:show, :update, :create, :destroy]
+      resources :users, only: [:index,:show,:create,:update,:destroy]
     end
   end
 end

@@ -13,6 +13,7 @@ class Api::V1::CartsController < ApplicationController
   end
 
   def update
+    @cart = find_cart
     @cart.update(cart_params)
     if @cart.save
       render json: @cart, status: :accepted
@@ -30,10 +31,24 @@ class Api::V1::CartsController < ApplicationController
     end
   end
 
+  def destroy
+    payment = params["paying"]
+    @user = User.find(cart_params["user_id"])
+    @cart = find_cart
+    # byebug
+    if payment == "true"
+        @user.carts.destroy_all
+        render json: @user, status: :accepted
+      else
+        Cart.destroy(find_cart.id)
+        render json: @user, status: :accepted
+      end
+  end
+
   private
 
   def cart_params
-    params.permit(:user_id,:product_id,:quantity)
+    params.permit(:user_id,:product_id,:quantity,:paying)
   end
 
   def find_cart
