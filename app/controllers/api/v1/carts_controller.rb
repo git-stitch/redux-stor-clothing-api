@@ -33,22 +33,25 @@ class Api::V1::CartsController < ApplicationController
 
   def destroy
     payment = params["paying"]
-    @user = User.find(cart_params["user_id"])
-    @cart = find_cart
     # byebug
-    if payment == "true"
-        @user.carts.destroy_all
-        render json: @user, status: :accepted
-      else
-        Cart.destroy(find_cart.id)
-        render json: @user, status: :accepted
-      end
+    @cart = find_cart
+    @user = @cart.user
+    # byebug
+    # if payment == "true"
+    #     @user.carts.destroy_all
+    #     render json: @user, status: :accepted
+    #   else
+    #     Cart.destroy(find_cart.id)
+    #     render json: @user, status: :accepted
+    #   end
+    @user.carts.destroy_all
+    render json: @user
   end
 
   private
 
   def cart_params
-    params.permit(:user_id,:product_id,:quantity,:paying)
+    params.permit(:id,:user_id,:product_id,:quantity,:paying)
   end
 
   def find_cart
