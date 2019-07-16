@@ -1,11 +1,59 @@
-# README
+# Helping Hands RESTful API
 
-Major Keys For the ReduxStor Fake Clothing API
-//////////////////////////////////////////////
-Get All Products
-//////////////////////////////////////////////
-  Get all Products: http://localhost:3000/api/v1/products
-  Example JSON response:
+The Helping Hands API is the back end for the Helping Hands Client. This RESTful API is meant to give routing for the Non-Profit Donation Marketplace. It's complete with the Stripe API, user authorization, creation and non-profit authorization and creation. 
+
+* [Helping Hands Client](https://github.com/VonStein7/helping-hands-client) - The Non-Profit Donation Marketplace Client
+
+## Getting Started
+
+You will need Ruby installed and rails. The current build runs Ruby 2.6.1p33 and Rails 5.2.3. Bundle install or sudo bundle install to load gem file. 
+
+### Installing
+
+```
+bundle install
+```
+
+or 
+
+```
+sudo bundle install
+```
+
+### Getting Started
+
+To get started with running the server. This application assumes you have Postgres installed locally on your machine. If you don't you can visit  [Postgres](https://postgresapp.com/downloads.html) for the installation documentation. Then start the server and we can create the database. 
+
+Create the database and Migrate Tables
+
+```
+rails db:create && rails db:migrate
+```
+
+The seed the database or create your own seeds in the seed file. 
+
+```
+rails db:seed
+```
+
+Run the server
+
+```
+rails s
+```
+
+![Rails](https://i.ibb.co/2ybrtLK/Screen-Shot-2019-07-16-at-12-53-09-PM.png "Rails Started")
+
+# RESTful Routes
+Here are some routes and example responses for using this api. 
+
+## Get All Products
+```
+http://localhost:3000/api/v1/products
+```
+
+##  Example Response
+```
 [
       {
       "id": 1,
@@ -35,12 +83,15 @@ Get All Products
       "updated_at": "2019-05-24T20:43:51.129Z"
       }
 ]
+```
 
-//////////////////////////////////////////////
-Get A Product
-//////////////////////////////////////////////
-GET one Product: http://localhost:3000/api/v1/products/:id
-  Example Response:
+## Get a Product
+```
+http://localhost:3000/api/v1/products/:id
+```
+
+##  Example Response
+```
     {
     "id": 1,
     "name": "Supreme Camo",
@@ -50,12 +101,15 @@ GET one Product: http://localhost:3000/api/v1/products/:id
     "created_at": "2019-05-24T19:38:14.608Z",
     "updated_at": "2019-05-24T19:38:14.608Z"
 }
+```
+## Create a Cart
+```
+POST to
+http://localhost:3000/api/v1/carts
+```
 
-//////////////////////////////////////////////
-Create a cart
-//////////////////////////////////////////////
-POST to  http://localhost:3000/api/v1/carts
-  Example Body:
+## Example Response
+```
     {
       "user_id":7,
       "product_id":47,
@@ -70,12 +124,15 @@ POST to  http://localhost:3000/api/v1/carts
       "created_at": "2019-05-28T17:43:29.084Z",
       "updated_at": "2019-05-28T17:43:29.084Z"
     }
+```
 
-//////////////////////////////////////////////
-Delete A Cart
-//////////////////////////////////////////////
-DELETE at http://localhost:3000/api/v1/carts/cart_id
-Example Body:
+## Delete a Cart
+```
+http://localhost:3000/api/v1/carts/cart_id
+```
+
+## Example Body
+```
 {
   "id": 4,
   "user_id": 7,
@@ -83,7 +140,10 @@ Example Body:
   "quantity": 2,
   "paying":"true"
 }
-Example Response:
+```
+
+## Example Response
+```
 {
     "id": 7,
     "email": "yaBoy@gmail.com",
@@ -107,18 +167,24 @@ Example Response:
         }
     ]
 }
+```
 
-//////////////////////////////////////////////
-Create A WishList
-//////////////////////////////////////////////
-POST to http://localhost:3000/api/v1/wish_lists
-Example Body:
+## Create a Wishlist
+```
+http://localhost:3000/api/v1/wish_lists
+```
+
+## Example Body
+```
 {
 	"user_id":9,
 	"product_id":51,
 	"quantity":3
 }
-Example Response:
+```
+
+## Example Response
+```
 {
     "id": 9,
     "user_id": 9,
@@ -127,29 +193,39 @@ Example Response:
     "created_at": "2019-05-28T19:40:36.911Z",
     "updated_at": "2019-05-28T19:40:36.911Z"
 }
-//////////////////////////////////////////////
-Delete A WishList
-//////////////////////////////////////////////
-DELETE to http://localhost:3000/api/v1/wish_lists/wish_list_id
-Example Response:
+```
+
+## Delete WishList
+```
+http://localhost:3000/api/v1/wish_lists/wish_list_id
+```
+
+## Example Response
+```
 {
     "id": 9,
     "email": "crybabyRei@aol.com",
     "carts": [],
     "wish_lists": []
 }
+```
 
-//////////////////////////////////////////////
-Update A WishList/Cart Quantity
-//////////////////////////////////////////////
-Patch to http://localhost:3000/api/v1/wish_lists/wish_list_id
-Example Body:
+## Update WishList
+```
+http://localhost:3000/api/v1/wish_lists/wish_list_id
+```
+
+## Example Body
+```
 {
 	"user_id":7,
 	"product_id":51,
 	"quantity":2
 }
-Example Response:
+```
+
+## Example Response
+```
 {
     "id": 10,
     "user_id": 7,
@@ -158,3 +234,25 @@ Example Response:
     "created_at": "2019-05-28T19:47:30.396Z",
     "updated_at": "2019-05-28T19:49:09.048Z"
 }
+```
+
+## Built With
+
+* [Ruby on Rails](https://rubyonrails.org/) - Backend Server
+* [Postgres](https://postgresapp.com/) - Database management
+
+## Versioning
+
+I use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+
+## Author
+
+* **Brenden Williams** - *Initial work* - [VonStein](https://github.com/VonStein7)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Big Ups to Flatiron School and my Cohort for supporting me through this project.
