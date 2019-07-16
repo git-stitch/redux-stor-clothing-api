@@ -1,8 +1,6 @@
-# Helping Hands RESTful API
+# Redux Stor API
 
-The Helping Hands API is the back end for the Helping Hands Client. This RESTful API is meant to give routing for the Non-Profit Donation Marketplace. It's complete with the Stripe API, user authorization, creation and non-profit authorization and creation. 
-
-* [Helping Hands Client](https://github.com/VonStein7/helping-hands-client) - The Non-Profit Donation Marketplace Client
+The Redux Stor API was meant to create a sample clothing store API. It was meant to give you the ability to simulate purchases and wishlists for quick eCommerce prototyping. Sample prices, images, and user data is provided via seed data. 
 
 ## Getting Started
 
@@ -204,7 +202,7 @@ http://localhost:3000/api/v1/wish_lists/wish_list_id
 ```
 {
     "id": 9,
-    "email": "crybabyRei@aol.com",
+    "email": "rei@aol.com",
     "carts": [],
     "wish_lists": []
 }
