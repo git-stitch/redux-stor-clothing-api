@@ -2,7 +2,7 @@
 
 The Redux Stor API was meant to create a sample clothing store API. It was meant to give you the ability to simulate purchases and wishlists for quick eCommerce prototyping. Sample prices, images, and user data is provided via seed data. 
 
-## Getting Started
+## Initial Setup
 
 You will need Ruby installed and rails. The current build runs Ruby 2.6.1p33 and Rails 5.2.3. Bundle install or sudo bundle install to load gem file. 
 
